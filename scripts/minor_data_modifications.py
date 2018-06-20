@@ -4,14 +4,14 @@
 import os
 
 # The directory containing the input .tsv or .csv files. Make sure you call the script from the correct directory
-input_base_directory = os.path.join("..", "LookupTables")
+input_base_directory = os.path.join("..", "SymbolRewriting")
 # Boolean to indicate whether we should also process all files in subdirectories of 'input_base_directory'
 full_traversal = True
 # The directory in which all the processed files will be stored as .tsv files
-output_base_directory = os.path.join('..', 'test_output')
+output_base_directory = os.path.join('..', 'test_output_symbol')
 
 ADD_INPUT_EOS = False
-REMOVE_INPUT_EOS = False
+REMOVE_INPUT_EOS = True
 INPUT_EOS_SYMBOL = '.'
 
 USE_OUTPUT_EOS = True
@@ -85,7 +85,7 @@ if __name__ == '__main__':
                     attn_seq = ADD_ATTN(input_seq, output_seq)
 
                 # Check whether output is valid
-                if attn_seq:
+                if attn_seq and False:
                     if USE_OUTPUT_EOS:
                         assert len(output_seq)+1 == len(attn_seq), "Attention sequence should be exactly 1 item longer than the output sequence"
                     else:
@@ -98,7 +98,7 @@ if __name__ == '__main__':
                 input_seq = " ".join(input_seq)
                 output_seq= " ".join(output_seq)
                 output_string = "{}\t{}".format(input_seq, output_seq)
-                if attn_seq:
+                if attn_seq and False:
                     attn_seq = " ".join(attn_seq)
                     output_string += "\t{}".format(attn_seq)
                 output_string += "\n"
