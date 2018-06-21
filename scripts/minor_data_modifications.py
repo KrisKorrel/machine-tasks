@@ -8,10 +8,10 @@ input_base_directory = os.path.join("..", "LookupTables")
 # Boolean to indicate whether we should also process all files in subdirectories of 'input_base_directory'
 full_traversal = True
 # The directory in which all the processed files will be stored as .tsv files
-output_base_directory = os.path.join('..', 'test_output')
+output_base_directory = os.path.join('..', 'test_output_lookup')
 
 ADD_INPUT_EOS = False
-REMOVE_INPUT_EOS = False
+REMOVE_INPUT_EOS = True
 INPUT_EOS_SYMBOL = '.'
 
 USE_OUTPUT_EOS = True
