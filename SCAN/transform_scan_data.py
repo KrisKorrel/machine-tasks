@@ -30,4 +30,4 @@ def clean_data(rootdir, newroot):
                 orig_file.close()
 
 if __name__ == '__main__':
-    clean_data('../../../data/SCAN', '../../../data/CLEANED-SCAN')
+    clean_data('SCAN', 'CLEANED-SCAN')

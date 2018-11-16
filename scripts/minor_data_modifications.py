@@ -4,11 +4,11 @@
 import os
 
 # The directory containing the input .tsv or .csv files. Make sure you call the script from the correct directory
-input_base_directory = os.path.join("..", "SymbolRewriting")
+input_base_directory = os.path.join("..", "LookupTables")
 # Boolean to indicate whether we should also process all files in subdirectories of 'input_base_directory'
 full_traversal = True
 # The directory in which all the processed files will be stored as .tsv files
-output_base_directory = os.path.join('..', 'test_output_symbol_eos')
+output_base_directory = os.path.join('..', 'test_output_lookup_ponder')
 
 ADD_INPUT_EOS = False
 REMOVE_INPUT_EOS = False
@@ -77,12 +77,15 @@ if __name__ == '__main__':
                     output_seq = line_split[1].split()
                     attn_seq = line_split[2].split()
 
+
                 if ADD_INPUT_EOS:
                     input_seq.append(INPUT_EOS_SYMBOL)
                 if REMOVE_INPUT_EOS:
                     input_seq = input_seq[:-1]
                 if ADD_ATTN is not None:
                     attn_seq = ADD_ATTN(input_seq, output_seq)
+
+                output_seq = [output_seq[-1]]
 
                 # Check whether output is valid
                 if attn_seq and False:
